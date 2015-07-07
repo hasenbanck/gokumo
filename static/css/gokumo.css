@@ -1,0 +1,7 @@
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+body {
+  padding-top: 50px;
+  padding: 40px 15px;
+  text-align: center;
+}

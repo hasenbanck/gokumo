@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="de" ng-app="gokumoApp">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gokumo</title>
+  <link rel="stylesheet" href="css/bootstrap-3.3.5.css">
+  <link rel="stylesheet" href="css/gokumo.css">
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Gokumo</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+			    <div class="input-group">
+   				  <div class="input-group-addon">Suche</div>
+		          <input type="text" placeholder="Suchbegriff" class="form-control" ng-model="query">
+			   </div>
+            </div>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div><!--/.container -->
+    </nav>
+
+    <div class="container">
+    
+	</div><!--/.container -->
+
+    <hr>
+    <footer>
+      <p>&copy; Gokumo 2015 | Wörterbuch vom <a href="http://wadoku.de/">Wadoku-Projekt</a> | <a href="http://wadoku.de/wiki/x/ZQE">Wörterbuchlizenz</a> </p>
+    </footer>
+</body>
+<script src="js/angular-1.3.16.min.js"></script>
+<script src="js/ui-bootstrap-0.13.0.min.js"></script>
+<script src="js/gokumo.js"></script>
+</body>
+</html>
