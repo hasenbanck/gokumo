@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/gokumo.css">
 </head>
 <body>
+<div ng-controller="QueryCtrl">
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -19,30 +20,54 @@
           </button>
           <a class="navbar-brand" href="#">Gokumo</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-            <div class="form-group">
-			    <div class="input-group">
-   				  <div class="input-group-addon">Suche</div>
-		          <input type="text" placeholder="Suchbegriff" class="form-control" ng-model="query">
-			   </div>
-            </div>
-          </form>
-        </div><!--/.navbar-collapse -->
+		
+		<form class="navbar-form">
+        <div class="form-group" style="display:inline;">
+          <div class="input-group" style="display:table;">
+            <span class="input-group-addon" style="width:1%;"><span class="glyphicon glyphicon-search"></span></span>
+            <input class="form-control" name="search" placeholder="Suchbegriff" autocomplete="off" autofocus="autofocus" type="text" ng-change="search()" ng-model="query" ng-model-options="{ debounce: 500 }" ngMaxlength=100>
+          </div>
+        </div>
+        </form>
+				
       </div><!--/.container -->
     </nav>
-
-    <div class="container">
-    
-	</div><!--/.container -->
-
+    <br/>
+    <div class="container" ng-if="result && result.Ruby != ''">
+		<div class="row">
+			<div class="ruby text-center" ng-bind-html="result.Ruby"></div>
+		</div>
+		<div class="row">
+			<div class="table-responsive">
+  			<table class="table table-striped">
+				<tr>
+					<td>Original</td>
+					<td>Lesung</td>
+					<td>Grundform</td>
+					<td>Übersetzung</td>
+				</tr>
+				<tr ng-repeat="entry in result.Results">
+					<td>{{entry.Original}}</td>
+					<td>{{entry.Reading}}</td>
+					<td>{{entry.Base}}</td>
+					<td>
+					<p ng-repeat="trans in entry.Translations">
+					{{$index + 1}}. {{trans}}
+					</p>
+					</td>
+				</tr>
+			</table>
+			</div>
+		</div>
+	</div><!--/.container -->	
     <hr>
     <footer>
-      <p>&copy; Gokumo 2015 | Wörterbuch vom <a href="http://wadoku.de/">Wadoku-Projekt</a> | <a href="http://wadoku.de/wiki/x/ZQE">Wörterbuchlizenz</a> </p>
+      <p class="text-center">&copy; Gokumo 2015 | Wörterbuch vom <a href="http://wadoku.de/">Wadoku-Projekt</a> | <a href="http://wadoku.de/wiki/x/ZQE">Wörterbuchlizenz</a> </p>
     </footer>
+</div><!--/.QueryCtrl -->
 </body>
-<script src="js/angular-1.3.16.min.js"></script>
-<script src="js/ui-bootstrap-0.13.0.min.js"></script>
+<script src="js/angular-1.4.2.min.js"></script>
+<script src="js/angular-sanitize-1.4.2.min.js"></script>
 <script src="js/gokumo.js"></script>
 </body>
 </html>

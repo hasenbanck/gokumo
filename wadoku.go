@@ -38,4 +38,5 @@ type Entry struct {
 	Orthography []string
 	Reading     []Reading
 	Translation []string
+	Count       int
 }
