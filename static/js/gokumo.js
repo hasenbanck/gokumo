@@ -3,6 +3,20 @@
 var app = angular.module('gokumoApp', ['ngSanitize']);
 
 app.controller('QueryCtrl', function($scope, $http) {
+
+	document.addEventListener("paste", function (e) {
+    	var pastedText = undefined;
+		if (e.clipboardData && e.clipboardData.getData) {
+    	    pastedText = e.clipboardData.getData('text/plain');
+    	}
+	    e.preventDefault();
+		var scope = angular.element('#search').scope();
+		scope.query = pastedText;
+		scope.search();
+    	return false;
+	});
+
+	
 	$scope.search = function() {
 		$http({
 			method: 'POST',
@@ -11,7 +25,6 @@ app.controller('QueryCtrl', function($scope, $http) {
 			headers: {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'}
 		})
 		.success(function(data, status, headers, config) {
-			// TODO map files of the JS/css files
 			$scope.result = data
 		})
 		.error(function(data, status, headers, config) {
@@ -19,3 +32,4 @@ app.controller('QueryCtrl', function($scope, $http) {
 		});
     };
 });
+

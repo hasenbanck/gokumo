@@ -25,7 +25,7 @@
         <div class="form-group" style="display:inline;">
           <div class="input-group" style="display:table;">
             <span class="input-group-addon" style="width:1%;"><span class="glyphicon glyphicon-search"></span></span>
-            <input class="form-control" name="search" placeholder="Suchbegriff" autocomplete="off" autofocus="autofocus" type="text" ng-change="search()" ng-model="query" ng-model-options="{ debounce: 500 }" ngMaxlength=100>
+            <input class="form-control" id="search" name="search" placeholder="Suchbegriff" autocomplete="off" autofocus="autofocus" type="text" ng-change="search()" ng-model="query" ng-model-options="{ debounce: 500 }" ngMaxlength=100>
           </div>
         </div>
         </form>
@@ -62,10 +62,11 @@
 	</div><!--/.container -->	
     <hr>
     <footer>
-      <p class="text-center">&copy; Gokumo 2015 | Wörterbuch vom <a href="http://wadoku.de/">Wadoku-Projekt</a> | <a href="http://wadoku.de/wiki/x/ZQE">Wörterbuchlizenz</a> </p>
+      <p class="text-center">&copy; Gokumo 2015 | Wörterbuch vom <a href="http://wadoku.de/">Wadoku-Projekt</a> | <a href="http://wadoku.de/wiki/x/ZQE">Wörterbuchlizenz</a> |<a href="/impressum">Impressum</a> </p>
     </footer>
 </div><!--/.QueryCtrl -->
 </body>
+<script src="js/jquery-2.1.4.min.js"></script>
 <script src="js/angular-1.4.2.min.js"></script>
 <script src="js/angular-sanitize-1.4.2.min.js"></script>
 <script src="js/gokumo.js"></script>

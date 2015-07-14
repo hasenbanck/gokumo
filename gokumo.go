@@ -42,6 +42,7 @@ func getTranslations(meResults []mecabResult) []translationResult {
 
 	for i := 0; i < len(meResults); {
 		r := meResults[i]
+		// TODO iter through all entries of finding suffix entries like niyotte and toaru, for this we need to clean the wadoku entries for the ... and need to filter at the end for word groups
 		if (r.Pos == NOUN && r.Base != "*") || r.Pos == ADJECTIVE || r.Pos == VERB {
 			var rest []mecabResult
 			if i+lookforward < max {
